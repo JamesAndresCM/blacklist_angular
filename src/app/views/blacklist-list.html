@@ -1,0 +1,79 @@
+<h3>List Blacklist</h3>
+<div *ngIf="!data">
+	Loading Data..
+</div>
+
+<div *ngIf="data" >
+<div>
+ <table class="table table-striped" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="5" >
+ 	<thead>
+      <tr>
+        <th>
+            <mfDefaultSorter by="Id">Id</mfDefaultSorter>
+        </th>
+        <th>
+            <mfDefaultSorter by="ip">Ip</mfDefaultSorter>
+        </th>
+        <th>
+            <mfDefaultSorter by="central">Central R.</mfDefaultSorter>
+        </th>
+        <th>
+            <mfDefaultSorter by="status">Status</mfDefaultSorter>
+        </th>
+        <th>
+            <mfDefaultSorter by="hostname">Hostname</mfDefaultSorter>
+        </th>
+        <th>
+            <mfDefaultSorter by="url_central">Url Central</mfDefaultSorter>
+        </th>
+        <th>
+            <mfDefaultSorter by="created_at">Created At</mfDefaultSorter>
+        </th>
+        <th>
+          Options
+        </th>
+      </tr>
+    </thead>
+   <tbody>
+  <tr *ngFor="let item of mf.data">
+    <td>
+      {{item.id}}
+    </td>
+    <td>
+      {{item.ip_address}}
+    </td>
+    <td>
+      {{item.central_report}}
+    </td>
+    <td>
+      {{item.status_ip}}
+    </td>
+    <td>
+      {{item.hostname}}
+    </td>
+    <td>
+      <a href={{item.url_central_report}} target="_blank" class="btn btn-sm btn-primary">Go to deslist</a>
+    </td>
+    <td>
+      {{item.created_at | date: 'dd/MM/yyyy'}}
+    </td>
+    <td>
+      <a (click)="delConfirm(item.id)" style="color: white;" class="btn btn-sm btn-danger">Delete blacklist</a>
+    <span *ngIf="confirm == item.id">
+      <p>¿Delete?</p>
+      <a style="color: white;" (click)="onDeleteBlacklist(item.id)" class="btn btn-sm btn-danger">Yes</a>
+      <a style="color: white;" (click)="cancelConfirm()" class="btn btn-sm btn-primary">Cancel</a>
+    </span>
+  </td>
+  </tr>
+</tbody>
+<tfoot>
+    <tr>
+        <td colspan="4" style="text-align: center;">
+            <mfBootstrapPaginator [rowsOnPageSet]="[]"></mfBootstrapPaginator>
+        </td>
+    </tr>
+    </tfoot>
+</table>
+	</div>
+</div>

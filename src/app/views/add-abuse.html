@@ -1,0 +1,26 @@
+<h3>{{ titulo }}</h3>
+<hr>
+
+<form #formAbuse="ngForm" (ngSubmit)="onSubmit()" class="col-lg-6 offset-4" id="form-abuse">
+	<label>
+		Ip address
+		<span *ngIf="!ip_address.valid && ip_address.touched" class="badge badge-danger badge-pill">Required!</span>
+	</label>
+		<input type="text" #ip_address="ngModel" name="ip_address" [(ngModel)]="abuse.ip_address" class="form-control" required>
+	<label>
+		White List
+		<span *ngIf="!isWhitelisted.valid && isWhitelisted.touched" class="badge badge-danger badge-pill">Required!</span>
+	</label>
+		<input type="text" #isWhitelisted="ngModel" name="isWhitelisted" [(ngModel)]="abuse.isWhitelisted" 
+		class="form-control" required>
+	<label>
+		Category Ip Blacklist
+		<span *ngIf="!category_ip_blacklist.valid && category_ip_blacklist.touched" class="badge badge-danger badge-pill">Required!</span>
+	</label>
+		<input type="text" #category_ip_blacklist="ngModel" name="category_ip_blacklist" 
+		[(ngModel)]="abuse.category_ip_blacklist" class="form-control" required>
+		<br>
+	<label>
+		<input type="submit" style="width: 200px;" value={{titulo}} [disabled]="!formAbuse.form.valid" class="btn btn-sm btn-success offset-4">
+	</label>
+</form>

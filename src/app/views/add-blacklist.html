@@ -1,0 +1,35 @@
+<h3>{{ titulo }}</h3>
+<hr>
+
+<form #formBlacklist="ngForm" (ngSubmit)="onSubmit()" class="col-lg-6 offset-4" id="form-blacklist">
+	<label>
+		Ip address
+		<span *ngIf="!ip_address.valid && ip_address.touched" class="badge badge-danger badge-pill">Required!</span>
+	</label>
+		<input type="text" #ip_address="ngModel" name="ip_address" [(ngModel)]="blacklist.ip_address" class="form-control" required>
+	<label>
+		Central Report
+		<span *ngIf="!central_report.valid && central_report.touched" class="badge badge-danger badge-pill">Required!</span>
+	</label>
+		<input type="text" #central_report="ngModel" name="central_report" [(ngModel)]="blacklist.central_report" class="form-control" required>
+	<label>
+		Status Ip
+		<span *ngIf="!status_ip.valid && status_ip.touched" class="badge badge-danger badge-pill">Required!</span>
+	</label>
+		<input type="text" #status_ip="ngModel" name="status_ip" [(ngModel)]="blacklist.status_ip" class="form-control" required>
+	<label>
+		Hostname
+		<span *ngIf="!hostname.valid && hostname.touched" class="badge badge-danger badge-pill">Required!</span>
+	</label>
+		<input type="text" #hostname="ngModel" name="hostname" [(ngModel)]="blacklist.hostname" class="form-control" required>
+	<label>
+		Url central
+		<span *ngIf="!url_central_report.valid && url_central_report.touched" class="badge badge-danger badge-pill">Required!</span>
+	</label>
+		<input type="text" #url_central_report="ngModel" name="url_central_report" 
+		[(ngModel)]="blacklist.url_central_report" class="form-control" required>
+		<br>
+	<label>
+		<input type="submit" style="width: 200px;" value={{titulo}} [disabled]="!formBlacklist.form.valid" class="btn btn-sm btn-success offset-4">
+	</label>
+</form>

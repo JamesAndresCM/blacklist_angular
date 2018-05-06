@@ -1,0 +1,41 @@
+<h3>Detail Abuse</h3>
+
+<div *ngIf="!abuse">
+	<p>Load Data</p>
+</div>
+<div *ngIf="abuse">
+<div class="table-responsive col-lg-8 offset-2">
+ <table class="table">
+ 	<thead>
+      <tr>
+      	<th>Id</th>
+        <th>Ip Address</th>
+        <th>White Listed</th>
+        <th>Category</th>
+        <th>Created At</th>
+      </tr>
+    </thead>
+   <tbody>
+   	<tr>
+   		<td>
+   			{{abuse.id}}
+   		</td>
+   		<td>
+   			{{abuse.ip_address}}
+   		</td>
+   		<td>
+   			{{abuse.isWhitelisted}}
+   		</td>
+   		<td>
+   			{{abuse.category_ip_blacklist}}
+   		</td>
+   		<td>
+   			{{abuse.created_at | date: 'dd/MM/yyyy'}}
+   		</td>
+   	</tr>
+   </tbody>
+</table>
+<br>
+<a style="color: white;" [routerLink]="['/abuses']" class="btn btn-sm btn-success">Back To Abuses</a>
+</div>
+</div>

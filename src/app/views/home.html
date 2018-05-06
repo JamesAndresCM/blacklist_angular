@@ -1,0 +1,24 @@
+<div class="col-lg-8 offset-2">
+	<div class="jumbotron">
+		<h1>{{ titulo }}</h1>
+		<img width="500px;" height="120px;" src="./assets/img/blacklist-800x445.jpg" alt="">
+		<br>
+		<ul style="text-align: -webkit-auto; width: 40%; margin: auto;">
+		<li><a href="http://barracudacentral.org/rbl/removal-request">b.barracudacentral.org</a></li>
+		<li><a href="https://www.spamcop.net/bl.shtml">bl.spamcop.net</a></li>
+		<li><a href="https://www.abuseat.org/lookup.cgi">cbl.abuseat.org</a></li>
+		<li><a href="http://www.sorbs.net/cgi-bin/support" >dnsbl.sorbs.net</a></li>
+		<li><a href="http://www.sorbs.net/cgi-bin/support" >spam.dnsbl.sorbs.net</a></li>
+		<li><a href="http://www.spamrats.com/removal.php" >spam.spamrats.com</a></li>
+		<li><a href="https://www.spamhaus.org/lookup" >zen.spamhaus.org</a></li>
+		<li><a href="https://www.dnsbl.info/dnsbl-database-check.php" >bl.spamcannibal.org</a></li>
+		<li><a href="http://www.sorbs.net/cgi-bin/support">smtp.dnsbl.sorbs.net</a></li>
+		<li><a href="http://www.sorbs.net/cgi-bin/support">spam.dnsbl.sorbs.net</a></li>
+		</ul>
+		<hr>
+		<p>
+			<a [routerLink]="['/abuses']" class="btn btn-sm btn-primary">Show Abuses</a>
+			<a [routerLink]="['/blacklist']" class="btn btn-sm btn-success">Show Blacklist</a>
+		</p>
+	</div>
+</div>
